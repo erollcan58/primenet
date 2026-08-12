@@ -1,220 +1,143 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Prime Net - Telekom altyapı, fiber optik kurulum, arıza giderme ve saha hizmetleri.">
-  <title>Prime Net | Telekom Altyapı ve Saha Hizmetleri</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:Arial,Helvetica,sans-serif;background:#050b1b;color:#fff;line-height:1.6}
-    a{text-decoration:none;color:inherit}
-    .container{width:min(1120px,92%);margin:auto}
-
-    header{
-      position:sticky;top:0;z-index:20;
-      background:rgba(4,10,27,.92);backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,.08)
-    }
-    nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:25px}
-    .logo{display:flex;align-items:center}
-    .logo img{height:42px;width:auto;display:block}
-    .nav-links{display:flex;gap:28px;align-items:center;font-weight:700;font-size:14px}
-    .nav-links a{opacity:.9;transition:.2s}
-    .nav-links a:hover{color:#19a8ff}
-    .call-btn,.primary{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 20px;border-radius:9px;font-weight:800;
-      background:linear-gradient(135deg,#0d9cff,#0878ff);
-      box-shadow:0 10px 30px rgba(0,140,255,.22);transition:.2s
-    }
-    .call-btn:hover,.primary:hover{transform:translateY(-2px)}
-
-    .hero{
-      min-height:690px;display:flex;align-items:center;
-      background:
-        radial-gradient(circle at 78% 38%,rgba(0,92,255,.7),transparent 34%),
-        radial-gradient(circle at 55% 65%,rgba(0,168,255,.22),transparent 35%),
-        linear-gradient(135deg,#030817 0%,#061332 55%,#020817 100%);
-      position:relative;overflow:hidden
-    }
-    .hero:after{
-      content:"";position:absolute;width:520px;height:520px;border-radius:50%;
-      right:-180px;bottom:-220px;background:rgba(0,115,255,.18);filter:blur(20px)
-    }
-    .hero-content{position:relative;z-index:2;max-width:720px;padding:85px 0}
-    .eyebrow{color:#15a9ff;font-size:15px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px}
-    h1{font-size:clamp(46px,7vw,78px);line-height:.98;letter-spacing:-2px;margin-bottom:22px}
-    h1 span{color:#0aa7ff}
-    .hero p{font-size:18px;color:#c9d5ea;max-width:680px;margin-bottom:30px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap}
-    .secondary{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 20px;border:1px solid #159fff;border-radius:9px;font-weight:800
-    }
-    .secondary:hover{background:rgba(21,159,255,.12)}
-
-    section{padding:90px 0}
-    .section-title{font-size:40px;margin-bottom:12px}
-    .section-subtitle{color:#aebbd0;max-width:700px;margin-bottom:38px}
-    .services{background:#07132c}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .card{
-      background:linear-gradient(180deg,rgba(20,42,82,.75),rgba(7,18,42,.85));
-      border:1px solid rgba(76,151,255,.15);border-radius:16px;padding:28px;
-      transition:.25s
-    }
-    .card:hover{transform:translateY(-5px);border-color:rgba(21,159,255,.5)}
-    .icon{font-size:34px;margin-bottom:15px}
-    .card h3{font-size:21px;margin-bottom:9px}
-    .card p{color:#b9c6da;font-size:15px}
-
-    .about{background:#050b1b}
-    .about-box{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
-    .about-copy p{color:#b9c6da;margin-top:15px}
-    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .stat{padding:24px;border-radius:14px;background:#0a1732;border:1px solid rgba(255,255,255,.07)}
-    .stat strong{display:block;font-size:30px;color:#12a7ff}
-    .stat span{color:#b9c6da;font-size:14px}
-
-    .contact{background:linear-gradient(135deg,#06142f,#071c43)}
-    .contact-box{
-      display:flex;align-items:center;justify-content:space-between;gap:30px;
-      padding:38px;border-radius:20px;border:1px solid rgba(30,160,255,.25);
-      background:rgba(2,10,28,.35)
-    }
-    .contact-box p{color:#c1cde0;margin-top:7px}
-    .contact-actions{display:flex;gap:12px;flex-wrap:wrap}
-    footer{padding:28px 0;background:#030816;color:#8fa0bb;text-align:center;font-size:13px}
-
-    .whatsapp{
-      position:fixed;right:22px;bottom:22px;z-index:30;
-      width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-      background:#25d366;color:#fff;font-size:28px;
-      box-shadow:0 10px 30px rgba(0,0,0,.35);border:2px solid rgba(255,255,255,.25)
-    }
-    .whatsapp:hover{transform:scale(1.06)}
-
-    @media(max-width:800px){
-      .nav-links{display:none}
-      .grid{grid-template-columns:1fr}
-      .about-box{grid-template-columns:1fr}
-      .contact-box{flex-direction:column;align-items:flex-start}
-      .hero{min-height:610px}
-      h1{letter-spacing:-1px}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeNet | Telekom Altyapı ve Saha Hizmetleri</title>
+<meta name="description" content="PrimeNet - Fiber optik altyapı, kurulum, arıza giderme ve saha hizmetleri.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#06102d;color:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(4,12,35,.94);border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}
+.nav{max-width:1150px;margin:auto;height:76px;padding:0 22px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:800}
+.logo img{width:52px;height:52px;object-fit:contain}
+.logo span:last-child{color:#17a9ff}
+nav{display:flex;align-items:center;gap:28px}
+nav a{font-weight:600;color:#e9efff;transition:.2s}
+nav a:hover{color:#16a9ff}
+.call{background:#159ef3;padding:11px 19px;border-radius:10px;font-weight:700}
+.hero{min-height:760px;padding:155px 22px 100px;display:flex;align-items:center;overflow:hidden;position:relative;background:
+radial-gradient(circle at 78% 45%,rgba(0,93,255,.75),transparent 38%),
+radial-gradient(circle at 95% 10%,rgba(0,174,255,.35),transparent 25%),
+linear-gradient(115deg,#03091d,#07194a 55%,#001a63)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,9,29,.65),transparent 70%);pointer-events:none}
+.hero-inner{max-width:1150px;width:100%;margin:auto;position:relative;z-index:2}
+.badge{display:inline-block;color:#18b4ff;font-size:16px;font-weight:800;letter-spacing:1px;margin-bottom:15px}
+h1{font-size:clamp(48px,7vw,82px);line-height:1.02;max-width:760px;margin-bottom:25px}
+h1 span{color:#10a9ff}
+.hero p{font-size:19px;color:#d7e3ff;max-width:720px;margin-bottom:32px}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 23px;border-radius:10px;font-weight:800;border:1px solid #199ff0}
+.btn.primary{background:#14a5f7}
+.btn.secondary{background:rgba(255,255,255,.04)}
+section{padding:90px 22px}
+.container{max-width:1150px;margin:auto}
+.title{text-align:center;margin-bottom:45px}
+.title small{color:#15aaff;font-weight:800;letter-spacing:1px}
+.title h2{font-size:42px;margin-top:8px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:linear-gradient(145deg,#0d2254,#081638);border:1px solid rgba(75,159,255,.2);border-radius:18px;padding:28px;min-height:210px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#159ef3}
+.icon{font-size:35px;margin-bottom:15px}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{color:#b8c8e8}
+.about{background:#071535}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about h2{font-size:42px;margin:8px 0 18px}
+.about p{color:#c3d0ea;font-size:17px;margin-bottom:15px}
+.list{display:grid;gap:12px;margin-top:22px}
+.list div{background:#0b1e47;padding:13px 16px;border-radius:10px;color:#dbe7ff}
+.contact{text-align:center;background:linear-gradient(135deg,#071538,#032c70)}
+.contact h2{font-size:44px;margin-bottom:15px}
+.contact p{color:#c8d7f3;margin-bottom:25px}
+footer{padding:28px 22px;text-align:center;background:#03091c;color:#8799bf}
+@media(max-width:850px){
+nav{gap:12px}nav a:not(.call){display:none}
+.cards{grid-template-columns:1fr 1fr}
+.about-grid{grid-template-columns:1fr}
+.hero{min-height:700px}
+}
+@media(max-width:520px){
+.nav{height:68px}.logo{font-size:20px}.logo img{width:42px;height:42px}
+.hero{padding-top:120px}h1{font-size:48px}.hero p{font-size:16px}
+.cards{grid-template-columns:1fr}.title h2,.about h2,.contact h2{font-size:34px}
+}
+</style>
 </head>
 <body>
 
 <header>
-  <div class="container">
+  <div class="nav">
+    <a class="logo" href="#anasayfa">
+      <img src="logo.png" alt="PrimeNet Logo">
+      <span>PRIME</span><span>NET</span>
+    </a>
     <nav>
-      <a class="logo" href="#anasayfa" aria-label="Prime Net">
-        <img src="logo.png" alt="Prime Net">
-      </a>
-      <div class="nav-links">
-        <a href="#hizmetler">Hizmetlerimiz</a>
-        <a href="#hakkimizda">Hakkımızda</a>
-        <a href="#iletisim">İletişim</a>
-      </div>
-      <a class="call-btn" href="tel:+905447398531">Bizi Arayın</a>
+      <a href="#hizmetler">Hizmetlerimiz</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#iletisim">İletişim</a>
+      <a class="call" href="tel:+905447398531">Bizi Arayın</a>
     </nav>
   </div>
 </header>
 
-<main id="anasayfa">
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="eyebrow">Telekom Altyapı ve Saha Hizmetleri</div>
-        <h1>Bağlantının<br>arkasındaki <span>güç.</span></h1>
-        <p>Fiber optik altyapı, kurulum, arıza giderme ve altyapı saha çalışmalarında uzman ekiplerle hızlı, güvenilir ve kesintisiz hizmet.</p>
-        <div class="actions">
-          <a class="primary" href="https://wa.me/905447398531?text=Merhaba%20Prime%20Net%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp'tan Teklif Al</a>
-          <a class="secondary" href="#hizmetler">Hizmetlerimizi İnceleyin</a>
-        </div>
-      </div>
+<main>
+<section class="hero" id="anasayfa">
+  <div class="hero-inner">
+    <div class="badge">TELEKOM ALTYAPI VE SAHA HİZMETLERİ</div>
+    <h1>Bağlantının<br>arkasındaki <span>güç.</span></h1>
+    <p>Fiber optik altyapı, kurulum, arıza giderme ve altyapı saha çalışmalarında uzman ekiplerle hızlı, güvenilir ve kesintisiz hizmet.</p>
+    <div class="buttons">
+      <a class="btn primary" href="https://wa.me/905447398531?text=Merhaba%20PrimeNet%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank">WhatsApp'tan Teklif Al</a>
+      <a class="btn secondary" href="#hizmetler">Hizmetlerimizi İnceleyin</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="services" id="hizmetler">
-    <div class="container">
-      <h2 class="section-title">Hizmetlerimiz</h2>
-      <p class="section-subtitle">Saha operasyonlarından fiber altyapıya kadar ihtiyaç duyduğunuz teknik hizmetleri profesyonel ekiplerle sunuyoruz.</p>
-      <div class="grid">
-        <article class="card">
-          <div class="icon">🌐</div>
-          <h3>Fiber Optik Altyapı</h3>
-          <p>Fiber altyapı kurulum, saha uygulamaları ve bağlantı süreçlerinde profesyonel destek.</p>
-        </article>
-        <article class="card">
-          <div class="icon">🔧</div>
-          <h3>Kurulum Hizmetleri</h3>
-          <p>Abone kurulumları ve saha ekipleriyle hızlı, düzenli ve kaliteli uygulama.</p>
-        </article>
-        <article class="card">
-          <div class="icon">⚡</div>
-          <h3>Arıza Giderme</h3>
-          <p>Bağlantı problemlerine hızlı müdahale ve çözüm odaklı teknik saha hizmeti.</p>
-        </article>
-        <article class="card">
-          <div class="icon">📡</div>
-          <h3>Altyapı Saha Çalışmaları</h3>
-          <p>Telekom altyapı operasyonları, saha kontrolü ve teknik uygulamalar.</p>
-        </article>
-        <article class="card">
-          <div class="icon">👷</div>
-          <h3>Uzman Ekipler</h3>
-          <p>Deneyimli saha personeliyle güvenilir ve standartlara uygun çalışma.</p>
-        </article>
-        <article class="card">
-          <div class="icon">📞</div>
-          <h3>Hızlı Destek</h3>
-          <p>İhtiyacınızı doğrudan ekibimize iletin, hızlıca iletişime geçelim.</p>
-        </article>
-      </div>
+<section id="hizmetler">
+  <div class="container">
+    <div class="title"><small>UZMANLIK ALANLARIMIZ</small><h2>Hizmetlerimiz</h2></div>
+    <div class="cards">
+      <div class="card"><div class="icon">🌐</div><h3>Fiber Optik Altyapı</h3><p>Fiber altyapı saha çalışmaları ve bağlantı süreçlerinde profesyonel ekip desteği.</p></div>
+      <div class="card"><div class="icon">🔧</div><h3>Kurulum Hizmetleri</h3><p>Abone ve saha kurulumlarında hızlı, düzenli ve kaliteli uygulama.</p></div>
+      <div class="card"><div class="icon">🛠️</div><h3>Arıza Giderme</h3><p>Bağlantı sorunlarına hızlı müdahale ve çözüm odaklı teknik destek.</p></div>
+      <div class="card"><div class="icon">📡</div><h3>Saha Operasyonları</h3><p>Telekom altyapı operasyonlarında deneyimli ekiplerle güvenilir saha hizmeti.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="about" id="hakkimizda">
-    <div class="container about-box">
-      <div class="about-copy">
-        <h2 class="section-title">Hakkımızda</h2>
-        <p>Prime Net, telekom altyapı ve saha hizmetlerinde çözüm odaklı yaklaşımıyla kaliteli ve güvenilir hizmet sunmayı hedefler.</p>
-        <p>Kurulumdan arıza giderme süreçlerine kadar saha operasyonlarının her aşamasında hızlı müdahale ve yüksek hizmet standardını ön planda tutuyoruz.</p>
-      </div>
-      <div class="stats">
-        <div class="stat"><strong>7/24</strong><span>Saha operasyonlarına hızlı yaklaşım</span></div>
-        <div class="stat"><strong>Hızlı</strong><span>Çözüm odaklı müdahale</span></div>
-        <div class="stat"><strong>Profesyonel</strong><span>Uzman saha ekipleri</span></div>
-        <div class="stat"><strong>Güvenilir</strong><span>Kaliteli hizmet anlayışı</span></div>
-      </div>
+<section class="about" id="hakkimizda">
+  <div class="container about-grid">
+    <div>
+      <small style="color:#15aaff;font-weight:800">PRIMENET</small>
+      <h2>Teknik güç, güvenilir hizmet.</h2>
+      <p>PrimeNet olarak telekom altyapı ve saha hizmetlerinde kaliteyi, hızı ve müşteri memnuniyetini ön planda tutuyoruz.</p>
+      <p>Kurulumdan arıza çözümüne kadar saha operasyonlarının her aşamasında profesyonel yaklaşım sunuyoruz.</p>
     </div>
-  </section>
+    <div class="list">
+      <div>✓ Deneyimli saha ekipleri</div>
+      <div>✓ Hızlı müdahale ve çözüm</div>
+      <div>✓ Fiber altyapı uzmanlığı</div>
+      <div>✓ Müşteri memnuniyeti odaklı çalışma</div>
+    </div>
+  </div>
+</section>
 
-  <section class="contact" id="iletisim">
-    <div class="container">
-      <div class="contact-box">
-        <div>
-          <h2 class="section-title">Bizimle iletişime geçin</h2>
-          <p>Teklif ve bilgi almak için bizi arayın veya WhatsApp üzerinden mesaj gönderin.</p>
-        </div>
-        <div class="contact-actions">
-          <a class="primary" href="https://wa.me/905447398531?text=Merhaba%20Prime%20Net%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">WhatsApp</a>
-          <a class="secondary" href="tel:+905447398531">0544 739 85 31</a>
-        </div>
-      </div>
+<section class="contact" id="iletisim">
+  <div class="container">
+    <h2>Bizimle iletişime geçin</h2>
+    <p>Hizmetlerimiz hakkında bilgi almak veya teklif talep etmek için bize ulaşabilirsiniz.</p>
+    <div class="buttons" style="justify-content:center">
+      <a class="btn primary" href="https://wa.me/905447398531?text=Merhaba%20PrimeNet%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank">WhatsApp'tan Yazın</a>
+      <a class="btn secondary" href="tel:+905447398531">0544 739 85 31</a>
     </div>
-  </section>
+  </div>
+</section>
 </main>
 
-<footer>
-  © 2026 Prime Net — Telekom Altyapı ve Saha Hizmetleri
-</footer>
-
-<a class="whatsapp" href="https://wa.me/905447398531?text=Merhaba%20Prime%20Net%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
-
+<footer>© 2026 PrimeNet. Tüm hakları saklıdır.</footer>
 </body>
 </html>
