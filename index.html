@@ -1,354 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Prime Net - Telekom altyapı, fiber optik, kurulum, arıza giderme ve saha hizmetleri.">
-<title>Prime Net | Telekom Altyapı ve Saha Hizmetleri</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PrimeNet | İnternet & Altyapı Çözümleri</title>
+<meta name="description" content="PrimeNet internet ve altyapı çözümleri, teknik destek, kurulum, aktivasyon ve saha hizmetleri.">
+<meta name="theme-color" content="#020817">
 <style>
-:root{
-  --bg:#06112d;
-  --bg2:#081a42;
-  --card:#0d2350;
-  --blue:#159cff;
-  --cyan:#18c8ff;
-  --text:#f7fbff;
-  --muted:#b8c7df;
-  --line:rgba(255,255,255,.10);
-  --shadow:0 25px 70px rgba(0,0,0,.35);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.6;
-}
-a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin:auto}
-
-/* NAVBAR */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:20;
-  background:rgba(4,13,35,.82);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-}
-.nav{
-  height:76px;display:flex;align-items:center;justify-content:space-between;gap:25px;
-}
-.logo{display:flex;align-items:center;min-width:170px}
-.logo img{width:145px;max-height:48px;object-fit:contain}
-.logo-fallback{font-size:22px;font-weight:800;letter-spacing:-1px}
-.logo-fallback span{color:var(--blue)}
-.menu{display:flex;align-items:center;gap:30px;font-size:15px;font-weight:600}
-.menu a{color:#dce7f8;transition:.2s}
-.menu a:hover{color:#24b8ff}
-.nav-btn{
-  padding:12px 20px;border-radius:10px;
-  background:linear-gradient(135deg,#1297ff,#16c7ff);
-  font-weight:800;box-shadow:0 10px 30px rgba(21,156,255,.25);
-}
-.mobile-btn{display:none;background:none;border:0;color:white;font-size:28px}
-
-/* HERO */
-.hero{
-  min-height:760px;padding-top:76px;display:flex;align-items:center;
-  position:relative;overflow:hidden;
-  background:
-    radial-gradient(circle at 78% 45%,rgba(0,105,255,.55),transparent 35%),
-    radial-gradient(circle at 55% 15%,rgba(20,195,255,.15),transparent 28%),
-    linear-gradient(120deg,#040d25 0%,#071b46 55%,#031a4c 100%);
-}
-.hero:before{
-  content:"";position:absolute;width:650px;height:650px;border-radius:50%;
-  right:-180px;top:70px;
-  background:radial-gradient(circle,rgba(16,155,255,.25),transparent 68%);
-  filter:blur(4px);
-}
-.hero-content{position:relative;z-index:2;max-width:720px}
-.eyebrow{
-  color:#24c8ff;text-transform:uppercase;letter-spacing:2px;
-  font-weight:800;font-size:14px;margin-bottom:14px;
-}
-h1{font-size:clamp(46px,7vw,82px);line-height:.98;letter-spacing:-3px;margin-bottom:25px}
-h1 span{color:#19baff}
-.hero p{font-size:19px;color:#d1dded;max-width:690px;margin-bottom:34px}
-.actions{display:flex;gap:14px;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:50px;padding:0 22px;border-radius:10px;font-weight:800;
-  border:1px solid rgba(255,255,255,.18);transition:.2s;
-}
-.btn-primary{background:linear-gradient(135deg,#08a6ff,#19c8ff);color:#03132f;box-shadow:0 12px 35px rgba(0,174,255,.25)}
-.btn-secondary{background:rgba(255,255,255,.04)}
-.btn:hover{transform:translateY(-2px)}
-.stats{
-  display:flex;gap:34px;margin-top:52px;flex-wrap:wrap;
-}
-.stat strong{display:block;font-size:28px}
-.stat span{color:#9fb1cc;font-size:13px}
-
-/* SECTIONS */
-section{padding:95px 0}
-.section-head{max-width:700px;margin-bottom:42px}
-.section-head .eyebrow{margin-bottom:9px}
-h2{font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-1.5px;margin-bottom:14px}
-.section-head p{color:var(--muted);font-size:17px}
-.services{background:linear-gradient(180deg,#06122f,#081a40)}
-.grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
-}
-.card{
-  background:linear-gradient(160deg,rgba(17,45,95,.92),rgba(8,28,67,.92));
-  border:1px solid var(--line);border-radius:18px;padding:27px;
-  box-shadow:var(--shadow);transition:.25s;
-}
-.card:hover{transform:translateY(-7px);border-color:rgba(24,200,255,.35)}
-.icon{
-  width:50px;height:50px;border-radius:14px;display:grid;place-items:center;
-  background:rgba(16,171,255,.13);font-size:25px;margin-bottom:20px;
-}
-.card h3{font-size:21px;margin-bottom:9px}
-.card p{color:#aebed6;font-size:14px}
-
-/* ABOUT */
-.about{
-  background:#040e27;
-}
-.about-wrap{
-  display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center;
-}
-.about-text p{color:var(--muted);margin:18px 0}
-.checks{display:grid;gap:13px;margin-top:25px}
-.check{display:flex;gap:11px;align-items:center;color:#dbe7f7}
-.check b{color:#18c8ff}
-.about-box{
-  padding:35px;border:1px solid var(--line);border-radius:24px;
-  background:linear-gradient(145deg,#0d2b61,#07183b);
-  box-shadow:var(--shadow);
-}
-.about-box h3{font-size:27px;margin-bottom:20px}
-.about-box .big{font-size:62px;font-weight:900;line-height:1;color:#18bfff}
-.about-box p{color:#9fb2ce;margin-top:10px}
-
-/* CTA */
-.cta{
-  padding:80px 0;
-  background:linear-gradient(120deg,#0a326c,#0759a5 55%,#08aee9);
-}
-.cta-box{display:flex;align-items:center;justify-content:space-between;gap:30px}
-.cta h2{margin:0;max-width:650px}
-.cta p{color:#e1f6ff;margin-top:10px}
-.cta .btn{background:#fff;color:#075197;border:0}
-
-/* CONTACT */
-.contact{background:#06122e}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.contact-card{
-  border:1px solid var(--line);background:#091c40;border-radius:18px;padding:28px;
-}
-.contact-card small{display:block;color:#7f96b7;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
-.contact-card a{font-size:20px;font-weight:800;color:#fff}
-.contact-card a:hover{color:#18c8ff}
-
-/* FOOTER */
-footer{background:#030a1d;border-top:1px solid var(--line);padding:28px 0;color:#8ea2c0}
-.footer{display:flex;justify-content:space-between;gap:20px;align-items:center}
-.footer strong{color:#eaf4ff}
-.wa{
-  position:fixed;right:22px;bottom:22px;z-index:30;
-  width:58px;height:58px;border-radius:50%;
-  display:grid;place-items:center;background:#25d366;color:white;
-  font-size:28px;font-weight:900;box-shadow:0 10px 30px rgba(0,0,0,.35);
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .grid{grid-template-columns:repeat(2,1fr)}
-  .about-wrap{grid-template-columns:1fr}
-  .cta-box{flex-direction:column;align-items:flex-start}
-}
-@media(max-width:700px){
-  .nav{height:68px}
-  .menu,.nav-btn{display:none}
-  .mobile-btn{display:block}
-  .hero{min-height:700px}
-  h1{letter-spacing:-2px}
-  .grid,.contact-grid{grid-template-columns:1fr}
-  .stats{gap:22px}
-  section{padding:72px 0}
-  .footer{flex-direction:column;align-items:flex-start}
-}
+:root{--bg:#020817;--bg2:#06132b;--panel:#071a38;--line:#163b70;--blue:#1683ff;--cyan:#23b7ff;--text:#f6f9ff;--muted:#a9bad4;--green:#20c969;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.5;overflow-x:hidden}a{text-decoration:none;color:inherit}button{font:inherit}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}.header{position:sticky;top:0;z-index:100;background:rgba(2,8,23,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(49,105,175,.22)}.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}.logo{height:54px;width:auto;display:block}.navlinks{display:flex;align-items:center;gap:34px;color:#d8e4f7;font-size:14px;font-weight:650}.navlinks a{position:relative;padding:28px 0}.navlinks a:after{content:"";position:absolute;left:0;right:100%;bottom:18px;height:2px;background:var(--blue);transition:.25s}.navlinks a:hover:after,.navlinks a.active:after{right:0}.phone{display:flex;align-items:center;gap:10px;border:1px solid #54759f;border-radius:11px;padding:11px 16px;font-weight:800;font-size:14px}.phone svg{width:18px}.menu{display:none;background:none;border:0;color:#fff;cursor:pointer}.menu svg{width:28px}
+.hero{min-height:650px;position:relative;display:flex;align-items:center;overflow:hidden;background:radial-gradient(circle at 78% 40%,rgba(9,91,210,.34),transparent 35%),linear-gradient(135deg,#030b1b 0%,#06152d 52%,#020817 100%)}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,8,23,.95) 0%,rgba(2,8,23,.78) 43%,rgba(2,8,23,.18) 100%)}.hero-content{position:relative;z-index:2;padding:90px 0;max-width:700px}.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:2px;font-size:13px;display:flex;align-items:center;gap:10px}.eyebrow:after{content:"";width:32px;height:1px;background:var(--cyan)}h1{font-size:clamp(48px,6.5vw,78px);line-height:1.02;letter-spacing:-2px;margin:18px 0 20px}h1 span{color:#fff}.hero p{max-width:650px;color:#c0cee1;font-size:18px;line-height:1.7;margin:0}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg,#087cff,#1660e9);border:1px solid #258cff;color:#fff;border-radius:11px;padding:13px 20px;font-weight:800;box-shadow:0 12px 30px rgba(0,110,255,.22);transition:.25s}.btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(0,110,255,.32)}.btn.outline{background:rgba(5,20,43,.45);border-color:#5c759a;box-shadow:none}.btn svg{width:18px}.fiber-art{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:650px;height:500px;opacity:.95}.fiber-art .core{position:absolute;right:70px;top:205px;width:300px;height:88px;border-radius:50px;background:linear-gradient(90deg,#0b1729,#111d2f);border:2px solid #263e5d;box-shadow:0 0 35px rgba(0,139,255,.25)}.fiber-art .core:before{content:"";position:absolute;left:-120px;top:25px;width:180px;height:38px;border-radius:50%;background:#0b1321;transform:rotate(2deg);border:1px solid #223a5c}.ray{position:absolute;right:295px;top:130px;width:340px;height:4px;border-radius:10px;background:linear-gradient(90deg,rgba(0,128,255,0),#0b92ff,#66d7ff);transform-origin:right center;box-shadow:0 0 12px #1683ff}.r1{transform:rotate(-24deg)}.r2{transform:rotate(-16deg)}.r3{transform:rotate(-8deg)}.r4{transform:rotate(0)}.r5{transform:rotate(8deg)}.r6{transform:rotate(16deg)}.r7{transform:rotate(24deg)}.dot{position:absolute;right:615px;width:8px;height:8px;border-radius:50%;background:#9be7ff;box-shadow:0 0 16px #1683ff}.d1{top:101px}.d2{top:137px}.d3{top:177px}.d4{top:226px}.d5{top:275px}.d6{top:314px}.d7{top:351px}
+.whatsapp{position:absolute;z-index:5;right:32px;bottom:24px;display:flex;align-items:center;gap:12px;background:rgba(3,15,34,.92);border:1px solid #2a4267;border-radius:16px;padding:10px 17px 10px 10px;box-shadow:0 15px 35px rgba(0,0,0,.3)}.wa-icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--green)}.wa-icon svg{width:24px}.wa-text small{display:block;color:#b9c9df;font-size:12px}.wa-text strong{font-size:14px}
+section{padding:86px 0}.section-head{text-align:center;margin-bottom:40px}.section-head .eyebrow{justify-content:center}.section-head .eyebrow:before{content:"";width:32px;height:1px;background:var(--cyan)}h2{font-size:clamp(32px,4vw,44px);line-height:1.1;margin:12px 0 0;letter-spacing:-.8px}.services{background:linear-gradient(180deg,#031027 0%,#06152e 100%)}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.card{background:linear-gradient(180deg,rgba(9,31,64,.86),rgba(5,22,48,.9));border:1px solid #174173;border-radius:14px;padding:27px 20px;min-height:250px;transition:.25s}.card:hover{transform:translateY(-5px);border-color:#2674bf;box-shadow:0 18px 45px rgba(0,0,0,.22)}.icon{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#0e63c9,#092653);border:1px solid #196bc3;box-shadow:inset 0 0 22px rgba(28,147,255,.15)}.icon svg{width:30px;color:#1da0ff}.card h3{font-size:17px;margin:18px 0 8px}.card p{color:#a9bad4;font-size:13px;line-height:1.65;margin:0}
+.about{background:#06152d}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}.visual{min-height:390px;border:1px solid #1b4a82;border-radius:15px;position:relative;overflow:hidden;background:radial-gradient(circle at 60% 30%,#1b67ba,transparent 20%),linear-gradient(145deg,#071c3e,#020a19 75%)}.visual:before{content:"";position:absolute;left:12%;right:12%;bottom:0;height:65%;background:linear-gradient(145deg,#0a2347,#08152c);clip-path:polygon(8% 12%,88% 0,100% 100%,0 100%);border:1px solid #204e84}.visual:after{content:"PRIMENET";position:absolute;left:25%;top:44%;font-size:42px;font-weight:900;letter-spacing:-2px;color:#fff;text-shadow:0 0 24px #167eff}.city{position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(180deg,transparent,#020817);opacity:.75}.about-copy .eyebrow{margin-bottom:8px}.about-copy p{color:#b4c4da;font-size:16px;line-height:1.8}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}.stat{border-top:1px solid #1b477a;padding-top:14px}.stat strong{display:block;font-size:17px}.stat span{color:#8fa7c5;font-size:12px}
+.why{padding:28px;background:linear-gradient(135deg,#061a3b,#07162e);border:1px solid #1a477c;border-radius:16px;display:grid;grid-template-columns:1.2fr repeat(4,1fr);align-items:center;gap:15px}.why-title{display:flex;align-items:center;gap:14px;font-size:23px;font-weight:850}.why-icon{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#0c3f88;border:1px solid #176dc4}.why-item{display:flex;align-items:center;gap:10px;padding:15px;border-left:1px solid #1b416e}.why-item svg{width:24px;color:#1c9bff;flex:none}.why-item strong{font-size:14px}
+.contact{position:relative;overflow:hidden;text-align:center;background:radial-gradient(circle at 50% 0,rgba(15,107,222,.3),transparent 55%),#061a39}.contact:before{content:"";position:absolute;inset:0;opacity:.25;background-image:radial-gradient(#2388ff 1px,transparent 1px);background-size:55px 55px}.contact-inner{position:relative}.contact p{color:#b8c9e0;margin:8px 0 26px}.contact-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}.contact .btn{min-width:210px}
+footer{background:#020817;border-top:1px solid #132d50;padding:50px 0 20px}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:35px}.footer-logo{height:48px}.footer p,.footer a{color:#8fa5c2;font-size:13px}.footer h4{margin:4px 0 14px;color:#e9f1fc}.footer-links{display:grid;gap:9px}.footer-bottom{border-top:1px solid #122b4b;margin-top:35px;padding-top:18px;color:#7187a5;font-size:12px;display:flex;justify-content:space-between;gap:15px}.top{position:fixed;right:22px;bottom:22px;width:38px;height:38px;border-radius:50%;background:#0b3e84;display:grid;place-items:center;z-index:30;border:1px solid #1e68bd}.top svg{width:17px}
+@media(max-width:980px){.navlinks{display:none}.menu{display:block}.phone{margin-left:auto}.grid{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr}.fiber-art{right:-230px;opacity:.55}.why{grid-template-columns:1fr 1fr}.why-title{grid-column:1/-1}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.container{width:min(var(--max),calc(100% - 28px))}.nav{height:70px}.logo{height:47px}.phone{display:none}.hero{min-height:680px}.hero-content{padding:80px 0 130px}.hero p{font-size:16px}.actions .btn{width:100%}.fiber-art{right:-360px;top:58%;opacity:.32;transform:translateY(-50%) scale(.8)}.whatsapp{right:14px;bottom:18px}.grid{grid-template-columns:1fr}.card{min-height:0}.stats{grid-template-columns:repeat(2,1fr)}.why{grid-template-columns:1fr}.why-item{border-left:0;border-top:1px solid #1b416e}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column}.visual{min-height:290px}.visual:after{font-size:28px}}
 </style>
-
-<style>
-.site-logo img, .logo img, header img.logo {
-  width: 150px !important;
-  height: 64px !important;
-  object-fit: contain !important;
-  object-position: center !important;
-  border-radius: 10px;
-}
-@media (max-width: 700px) {
-  .site-logo img, .logo img, header img.logo {
-    width: 125px !important;
-    height: 56px !important;
-  }
-}
-</style>
-
 </head>
 <body>
+<header class="header"><div class="container nav">
+<a href="#ana-sayfa" aria-label="PrimeNet ana sayfa"><img class="logo" src="logo.png" alt="PrimeNet İnternet & Altyapı Çözümleri"></a>
+<nav class="navlinks" aria-label="Ana menü"><a class="active" href="#ana-sayfa">Ana Sayfa</a><a href="#hizmetler">Hizmetlerimiz</a><a href="#hakkimizda">Hakkımızda</a><a href="#neden">Neden PrimeNet?</a><a href="#iletisim">İletişim</a></nav>
+<a class="phone" href="tel:+905447398531"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 5.18 2 2 0 0 1 5.06 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.6a2 2 0 0 1-.45 2.11L9 10.69a16 16 0 0 0 4.31 4.31l1.26-1.23a2 2 0 0 1 2.11-.45c.83.29 1.7.5 2.6.62A2 2 0 0 1 22 16.92z"/></svg>0544 739 85 31</a>
+<button class="menu" aria-label="Menüyü aç"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</div></header>
 
-<header>
-  <div class="container nav">
-    <a class="logo" href="#anasayfa" aria-label="Prime Net">
-      <img src="logo.png" alt="Prime Net Logo"
-           onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block'">
-      <div id="logoFallback" class="logo-fallback" style="display:none">PRIME <span>NET</span></div>
-    </a>
-
-    <nav class="menu">
-      <a href="#hizmetler">Hizmetler</a>
-      <a href="#hakkimizda">Hakkımızda</a>
-      <a href="#iletisim">İletişim</a>
-      <a class="nav-btn" href="tel:+905447398531">Bizi Arayın</a>
-    </nav>
-    <button class="mobile-btn" onclick="document.getElementById('mobileMenu').classList.toggle('show')" aria-label="Menü">☰</button>
-  </div>
-</header>
-
-<div id="mobileMenu" style="display:none;position:fixed;z-index:19;top:68px;left:0;right:0;background:#06132f;border-bottom:1px solid rgba(255,255,255,.1);padding:20px">
-  <div class="container" style="display:grid;gap:15px">
-    <a href="#hizmetler" onclick="closeMenu()">Hizmetler</a>
-    <a href="#hakkimizda" onclick="closeMenu()">Hakkımızda</a>
-    <a href="#iletisim" onclick="closeMenu()">İletişim</a>
-    <a href="tel:+905447398531" onclick="closeMenu()">Bizi Arayın</a>
-  </div>
-</div>
-
-<main id="anasayfa">
-<section class="hero">
-  <div class="container hero-content">
-    <div class="eyebrow">Telekom Altyapı ve Saha Hizmetleri</div>
-    <h1>Bağlantının<br>arkasındaki <span>güç.</span></h1>
-    <p>Fiber optik altyapı, kurulum, arıza giderme ve altyapı saha çalışmalarında uzman ekiplerle hızlı, güvenilir ve kesintisiz hizmet.</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="https://wa.me/905447398531?text=Merhaba%20Prime%20Net%2C%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank">WhatsApp'tan Teklif Al</a>
-      <a class="btn btn-secondary" href="#hizmetler">Hizmetlerimizi İnceleyin</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><strong>7/24</strong><span>Saha desteği</span></div>
-      <div class="stat"><strong>Hızlı</strong><span>Müdahale</span></div>
-      <div class="stat"><strong>Fiber</strong><span>Uzman ekip</span></div>
-    </div>
-  </div>
+<main>
+<section class="hero" id="ana-sayfa"><div class="container"><div class="hero-content">
+<div class="eyebrow">PRIMENET</div><h1>Bağlantının arkasındaki <span>güç.</span></h1><p>Güçlü altyapımız, hızlı çözümlerimiz ve kesintisiz hizmet anlayışımızla her zaman yanınızdayız.</p>
+<div class="actions"><a class="btn" href="#iletisim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h5M8 16h7"/></svg>Teklif Alın</a><a class="btn outline" href="#hizmetler">Hizmetlerimizi İnceleyin</a></div>
+</div></div>
+<div class="fiber-art" aria-hidden="true"><div class="core"></div><div class="ray r1"></div><div class="ray r2"></div><div class="ray r3"></div><div class="ray r4"></div><div class="ray r5"></div><div class="ray r6"></div><div class="ray r7"></div><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div><div class="dot d4"></div><div class="dot d5"></div><div class="dot d6"></div><div class="dot d7"></div></div>
+<a class="whatsapp" href="https://wa.me/905447398531" target="_blank" rel="noopener" aria-label="WhatsApp'tan PrimeNet'e yazın"><span class="wa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 11.5a8.2 8.2 0 0 1-12.2 7.1L4 20l1.4-3.6A8.2 8.2 0 1 1 20 11.5z"/><path d="M8.7 8.2c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .4-.1.5l-.6.7c.5 1 1.2 1.7 2.2 2.2l.7-.6c.2-.1.3-.2.5-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3 0 .5-.4.7-.4.2-1 .3-1.5.1-1.2-.3-2.5-1-3.5-2s-1.7-2.3-2-3.5c-.2-.5-.1-1.1.2-1.5z"/></svg></span><span class="wa-text"><small>WhatsApp'tan Yazın</small><strong>0544 739 85 31</strong></span></a>
 </section>
 
-<section class="services" id="hizmetler">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Hizmetlerimiz</div>
-      <h2>Altyapıdan son noktaya,<br>profesyonel saha hizmeti.</h2>
-      <p>Telekom altyapı operasyonlarında ihtiyaç duyulan kurulum, arıza ve saha çalışmalarını planlı ve kaliteli şekilde gerçekleştiriyoruz.</p>
-    </div>
-    <div class="grid">
-      <article class="card">
-        <div class="icon">⚡</div>
-        <h3>Fiber Optik</h3>
-        <p>Fiber altyapı saha çalışmaları, bağlantı ve sonlandırma süreçlerinde uzman ekip desteği.</p>
-      </article>
-      <article class="card">
-        <div class="icon">🔧</div>
-        <h3>Kurulum</h3>
-        <p>Abone kurulumları ve saha operasyonlarını hızlı, düzenli ve müşteri memnuniyeti odaklı yürütüyoruz.</p>
-      </article>
-      <article class="card">
-        <div class="icon">🛠️</div>
-        <h3>Arıza Giderme</h3>
-        <p>Bağlantı problemlerine sahada hızlı müdahale ederek hizmet sürekliliğini destekliyoruz.</p>
-      </article>
-      <article class="card">
-        <div class="icon">📡</div>
-        <h3>Altyapı Saha</h3>
-        <p>Telekom altyapı saha operasyonlarında keşif, kontrol, bakım ve uygulama hizmetleri.</p>
-      </article>
-    </div>
-  </div>
-</section>
+<section class="services" id="hizmetler"><div class="container"><div class="section-head"><div class="eyebrow">HİZMETLERİMİZ</div><h2>Size Nasıl Yardımcı Olabiliriz?</h2></div><div class="grid">
+<article class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18h2M9 14h2M14 10h2M19 6h1"/><path d="M5 18v-5M10 14V8M15 10V5M20 6V3"/></svg></div><h3>İnternet Altyapı Çözümleri</h3><p>Güçlü ve kesintisiz internet altyapısı için güvenilir saha çözümleri sunuyoruz.</p></article>
+<article class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m14.7 6.3 3-3 3 3-3 3M3 21l8.8-8.8M13.2 8.8l2 2M5 19l-1-1 2-2 2 1 1 2-2 2-1-1"/></svg></div><h3>Teknik Destek & Arıza Yönetimi</h3><p>Teknik ihtiyaçlara hızlı müdahale ederek sorunların çözümünü kolaylaştırıyoruz.</p></article>
+<article class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></svg></div><h3>Kurulum & Aktivasyon</h3><p>Planlı, hızlı ve profesyonel kurulum süreçleriyle hizmeti kullanıma hazır hale getiriyoruz.</p></article>
+<article class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></div><h3>Güvenli & Stabil Bağlantı</h3><p>İşletmeniz ve müşterileriniz için güvenilir, düzenli ve sürdürülebilir bağlantı anlayışı.</p></article>
+<article class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19V3"/><path d="M3 21h20"/></svg></div><h3>Kurumsal Çözümler</h3><p>İhtiyaca özel teknik ve saha çözümleriyle operasyonlarınıza değer katıyoruz.</p></article>
+</div></div></section>
 
-<section class="about" id="hakkimizda">
-  <div class="container about-wrap">
-    <div class="about-text">
-      <div class="eyebrow">Neden Prime Net?</div>
-      <h2>Sahada güç,<br>hizmette güven.</h2>
-      <p>Prime Net, telekom altyapı ve saha operasyonlarında hızlı müdahale, kaliteli uygulama ve müşteri memnuniyetini merkeze alan profesyonel bir hizmet anlayışıyla çalışır.</p>
-      <div class="checks">
-        <div class="check"><b>✓</b> Deneyimli saha ekipleri</div>
-        <div class="check"><b>✓</b> Hızlı ve planlı müdahale</div>
-        <div class="check"><b>✓</b> Kalite ve iş güvenliği odaklı çalışma</div>
-        <div class="check"><b>✓</b> Müşteri memnuniyeti</div>
-      </div>
-    </div>
-    <div class="about-box">
-      <h3>Doğru bağlantı,<br>doğru ekip.</h3>
-      <div class="big">7/24</div>
-      <p>İhtiyaçlarınıza hızlı cevap verecek saha operasyon anlayışı.</p>
-    </div>
-  </div>
-</section>
+<section class="about" id="hakkimizda"><div class="container"><div class="about-grid"><div class="visual" aria-label="PrimeNet kurumsal görseli"><div class="city"></div></div><div class="about-copy"><div class="eyebrow">PRIMENET</div><h2>Hakkımızda</h2><p>PrimeNet, internet ve altyapı çözümleri alanında müşterilerine hızlı, güvenilir ve profesyonel hizmet sunmak için çalışır. Deneyimli ekip anlayışımız ve saha odaklı yaklaşımımızla ihtiyaçlarınıza uygun çözümler üretir, bağlantının gücünü sizinle buluştururuz.</p><div class="stats"><div class="stat"><strong>Hızlı</strong><span>Çözüm odaklı yaklaşım</span></div><div class="stat"><strong>7/24</strong><span>Teknik destek anlayışı</span></div><div class="stat"><strong>Uzman</strong><span>Saha ekipleri</span></div><div class="stat"><strong>Güvenilir</strong><span>Altyapı çözümleri</span></div></div></div></div></div></section>
 
-<section class="cta">
-  <div class="container cta-box">
-    <div>
-      <h2>Hizmet almak veya teklif almak ister misiniz?</h2>
-      <p>Prime Net ekibine WhatsApp üzerinden doğrudan ulaşın.</p>
-    </div>
-    <a class="btn" href="https://wa.me/905447398531?text=Merhaba%20Prime%20Net%2C%20teklif%20almak%20istiyorum." target="_blank">WhatsApp'tan Ulaşın →</a>
-  </div>
-</section>
+<section id="neden" style="padding-top:0;background:#06152d"><div class="container"><div class="why"><div class="why-title"><span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></span>Neden<br>PrimeNet?</div><div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg><strong>Hızlı<br>Çözümler</strong></div><div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3"/><path d="M5 20c.8-3.4 3-5 7-5s6.2 1.6 7 5M3 10a3 3 0 1 0 0 6M21 10a3 3 0 1 1 0 6"/></svg><strong>Uzman<br>Ekip</strong></div><div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v6h-6"/></svg><strong>Uygun<br>Çözümler</strong></div><div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg><strong>Güvenilir<br>Altyapı</strong></div></div></div></section>
 
-<section class="contact" id="iletisim">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">İletişim</div>
-      <h2>Size nasıl yardımcı olabiliriz?</h2>
-      <p>Hizmet ve teklif talepleriniz için bize doğrudan ulaşabilirsiniz.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <small>Telefon</small>
-        <a href="tel:+905447398531">0544 739 85 31</a>
-      </div>
-      <div class="contact-card">
-        <small>WhatsApp</small>
-        <a href="https://wa.me/905447398531" target="_blank">WhatsApp'tan Mesaj Gönder →</a>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="contact" id="iletisim"><div class="container contact-inner"><div class="eyebrow" style="justify-content:center">İLETİŞİME GEÇİN</div><h2>Sizin için buradayız!</h2><p>Talep ve sorularınız için bizimle iletişime geçin.</p><div class="contact-actions"><a class="btn" href="tel:+905447398531">0544 739 85 31</a><a class="btn outline" href="https://wa.me/905447398531" target="_blank" rel="noopener">WhatsApp'tan Yazın</a></div></div></section>
 </main>
 
-<footer>
-  <div class="container footer">
-    <div><strong>PRIME NET</strong> · Telekom Altyapı ve Saha Hizmetleri</div>
-    <div>© 2026 Prime Net. Tüm hakları saklıdır.</div>
-  </div>
-</footer>
-
-<a class="wa" href="https://wa.me/905447398531?text=Merhaba%20Prime%20Net%2C%20bilgi%20almak%20istiyorum." target="_blank" aria-label="WhatsApp">☏</a>
-
+<footer class="footer"><div class="container"><div class="footer-grid"><div><img class="footer-logo" src="logo.png" alt="PrimeNet"><p>PrimeNet, güçlü altyapısı ve uzman ekibiyle internet ve altyapı çözümlerinde yanınızda.</p></div><div><h4>Hızlı Linkler</h4><div class="footer-links"><a href="#ana-sayfa">Ana Sayfa</a><a href="#hizmetler">Hizmetlerimiz</a><a href="#hakkimizda">Hakkımızda</a><a href="#neden">Neden PrimeNet?</a><a href="#iletisim">İletişim</a></div></div><div><h4>Hizmetlerimiz</h4><div class="footer-links"><a href="#hizmetler">İnternet Altyapı Çözümleri</a><a href="#hizmetler">Teknik Destek & Arıza Yönetimi</a><a href="#hizmetler">Kurulum & Aktivasyon</a><a href="#hizmetler">Güvenli & Stabil Bağlantı</a><a href="#hizmetler">Kurumsal Çözümler</a></div></div><div><h4>İletişim</h4><div class="footer-links"><a href="tel:+905447398531">☎ &nbsp;0544 739 85 31</a><a href="https://wa.me/905447398531" target="_blank" rel="noopener">◉ &nbsp;WhatsApp</a><span>⌖ &nbsp;Türkiye / İstanbul</span></div></div></div><div class="footer-bottom"><span>© 2026 PrimeNet. Tüm hakları saklıdır.</span><span>İnternet & Altyapı Çözümleri</span></div></div></footer>
+<a class="top" href="#ana-sayfa" aria-label="Yukarı çık"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></a>
 <script>
-function closeMenu(){
-  document.getElementById('mobileMenu').style.display='none';
-}
-const menu=document.getElementById('mobileMenu');
-const btn=document.querySelector('.mobile-btn');
-btn.addEventListener('click',()=>{
-  menu.style.display = menu.style.display==='block' ? 'none' : 'block';
-});
+const links=[...document.querySelectorAll('.navlinks a')];
+const sections=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const setActive=()=>{let y=window.scrollY+120;let current=sections[0];sections.forEach(s=>{if(s.offsetTop<=y) current=s});links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current.id))};window.addEventListener('scroll',setActive,{passive:true});setActive();
 </script>
 </body>
 </html>
